@@ -1,23 +1,23 @@
 package application.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Table(name = "library_users")
-@AllArgsConstructor
-@NoArgsConstructor
 @Setter
 @Getter
 public class User {
-    public User(String lastName, String firstName, String secondName, Book book) {
+    public User(String lastName, String firstName, String secondName, String email, Book book) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.secondName = secondName;
+        this.email = email;
         this.book = book;
+    }
+
+    public User() {
     }
 
     @Id
@@ -33,6 +33,12 @@ public class User {
 
     @Column(name = "second_name")
     private String secondName;
+
+    @Column(name = "age")
+    private Integer age;
+
+    @Column(name = "email")
+    private String email;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "book_id", referencedColumnName = "id")

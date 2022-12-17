@@ -6,12 +6,14 @@ import application.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/books")
 public class BooksController {
-
     private final BookService bookService;
 
     @Autowired
@@ -32,7 +34,9 @@ public class BooksController {
     }
 
     @PostMapping()
-    public String save(@ModelAttribute("book") Book book) {
+    public String save(@ModelAttribute("book") @Valid Book book, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "books/save";
         bookService.save(book);
         return "redirect:/books";
     }
@@ -44,7 +48,9 @@ public class BooksController {
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("book") Book book) {
+    public String update(@ModelAttribute("book") @Valid Book book, BindingResult bindingResult) {
+        if (bindingResult.hasErrors())
+            return "books/update";
         bookService.update(book);
         return "redirect:/books";
     }
