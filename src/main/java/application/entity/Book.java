@@ -1,17 +1,13 @@
 package application.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
-@Component("book")
-@Scope("prototype")
 @Entity
 @Table(name = "library_books")
-@AllArgsConstructor
-@NoArgsConstructor
 @Setter
 @Getter
 @ToString
@@ -20,6 +16,9 @@ public class Book {
         this.name = name;
         this.author = author;
         this.yearOfIssue = yearOfIssue;
+    }
+
+    public Book() {
     }
 
     @Id
