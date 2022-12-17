@@ -5,7 +5,7 @@
     <title>Book by id</title>
 </head>
 <body>
-<h1 th:text="${book.getName() + ', ' + book.getAuthor()}">VALUE</h1>
+<h1 th:text="${book.getTitle() + ', ' + book.getAuthor()}">VALUE</h1>
 <h1 th:text="${'Year of issue: ' + book.getYearOfIssue()}">VALUE</h1>
 <h1 th:text="${book.getId()}">VALUE</h1>
 
