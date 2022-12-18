@@ -24,6 +24,7 @@ public class BooksController {
     @GetMapping()
     public String findAll(Model model) {
         model.addAttribute("books", bookService.findAll());
+        System.out.println(bookService.findAll());
         return "books/findAll";
     }
 
