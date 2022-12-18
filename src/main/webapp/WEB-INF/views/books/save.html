@@ -19,6 +19,10 @@
         <input type="number" th:field="*{yearOfIssue}" id="yearOfIssue">
         <div style="color:red" th:if="${#fields.hasErrors('yearOfIssue')}" th:errors="*{yearOfIssue}">Name Error</div>
         <br/>
+        <label for="bookStatus"></label>
+        <input type="text" th:field="*{bookStatus}" id="bookStatus">
+        <div style="color:red" th:if="${#fields.hasErrors('bookStatus')}" th:errors="*{bookStatus}">Name Error</div>
+        <br/>
         <input type="submit" value="Create!">
     </label>
 </form>

@@ -17,6 +17,7 @@ public class User {
         this.secondName = secondName;
         this.email = email;
         this.book = book;
+        this.userStatus = UserStatus.FRIENDLY;
     }
 
     public User() {
@@ -52,4 +53,8 @@ public class User {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "book_id", referencedColumnName = "id")
     private Book book;
+
+    @Column(name = "user_status")
+    @NotNull
+    private UserStatus userStatus;
 }
