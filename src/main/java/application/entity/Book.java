@@ -31,7 +31,7 @@ public class Book {
     @SequenceGenerator(name = "order_generator", sequenceName = "books_seq", allocationSize = 1)
     private Long id;
 
-    @Size(min = 2, max = 50, message = "The title of a book should be between 2 and 50 characters")
+    @Size(min = 1, max = 50, message = "The title of a book should be between 2 and 50 characters")
     @NotEmpty(message = "Name must not be empty")
     @Column(name = "title")
     @Value("${book.name}")
